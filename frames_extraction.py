@@ -33,4 +33,4 @@ for imagePath in all_images:
         success, image = vidcap.read()
 
         print 'Read a new frame: ', success
-        count += 2
+        count += 1
