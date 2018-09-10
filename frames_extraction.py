@@ -7,29 +7,22 @@ print(cv2.__version__)
 
 # Directories
 main_path = os.path.dirname(os.path.realpath(__file__))[:-4]
-run = "fights/"
-walk = "noFights/"
-# sources
-data_path = main_path + "Dataset/"
-run_path = data_path + run
-walk_path = data_path + walk
-test_path = data_path + 'test/'
-# destinations
-run_frames = main_path + "Frames/" + run
-walk_frames = main_path + "Frames/" + walk
-test_frames = main_path + "Frames/" + "test/"
-print(run_frames, walk_frames)
 
-source_path = './test_vid/'
-target_frames = './Test_Folder/'
+#add videos in videos_dir
+#the extracted frames will be in extracted_frames_dir
+source_path = './videos_dir/'
+target_frames = './extracted_frames_dir/'
 
 all_images = os.listdir(source_path)
 for imagePath in all_images:
 
     vid = source_path + imagePath
-    # print(vid)
     vidcap = cv2.VideoCapture(vid)
+    length = int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
     success, image = vidcap.read()
+
+
+
     count = 0
     success = True
     while success:
@@ -37,4 +30,4 @@ for imagePath in all_images:
         success, image = vidcap.read()
 
         print 'Read a new frame: ', success
-        count += 1
+        count += 2
