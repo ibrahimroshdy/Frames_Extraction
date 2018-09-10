@@ -19,6 +19,9 @@ for imagePath in all_images:
     vid = source_path + imagePath
     vidcap = cv2.VideoCapture(vid)
     length = int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
+    
+    print ('Number of frames: ' + str(length))
+    
     success, image = vidcap.read()
 
 
